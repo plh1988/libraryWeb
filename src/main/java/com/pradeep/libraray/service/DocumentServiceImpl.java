@@ -1,5 +1,7 @@
 package com.pradeep.libraray.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -7,6 +9,7 @@ import com.pradeep.libraray.model.Card;
 import com.pradeep.libraray.model.Document;
 import com.pradeep.libraray.model.Page;
 import com.pradeep.libraray.model.Paragraph;
+import com.pradeep.libraray.model.Publisher;
 import com.pradeep.libraray.model.Section;
 import com.pradeep.libraray.repository.DocumentRepository;
 
@@ -37,6 +40,11 @@ public class DocumentServiceImpl implements DocumentService {
 			}
 		}
 		return documentRepository.save(document);
+	}
+
+	@Override
+	public List<Document> fetch() {
+		return documentRepository.findAll() ;
 	}
 
 	@Override

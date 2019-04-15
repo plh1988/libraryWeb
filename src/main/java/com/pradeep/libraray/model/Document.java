@@ -44,5 +44,10 @@ public class Document {
 	public void setCards(List<Card> cards) {
 		this.cards = cards;
 	}
-	
+	public List<Publisher> getPublishers() {
+		return publishers;
+	}
+	public void setPublishers(List<Publisher> publishers) {
+		this.publishers = publishers;
+	}
 }
