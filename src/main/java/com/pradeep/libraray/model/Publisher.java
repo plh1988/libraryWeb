@@ -4,6 +4,9 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Publisher {
@@ -11,6 +14,8 @@ public class Publisher {
 	private Integer id;
 	private String name;
 	
+	@ManyToMany(mappedBy = "publishers")
+	@JsonIgnore
 	private List<Document> documents;
 	
 	public Integer getId() {

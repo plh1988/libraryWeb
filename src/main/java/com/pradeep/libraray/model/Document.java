@@ -5,6 +5,9 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -16,6 +19,11 @@ public class Document {
 	@OneToMany(mappedBy = "document",cascade = CascadeType.ALL)
 	private List<Card> cards;
 	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name="document_publishers",
+				joinColumns = @JoinColumn(name="document_id",referencedColumnName = "id"),
+				inverseJoinColumns = @JoinColumn(name="publisher_id",referencedColumnName = "id")
+			)
 	private List<Publisher> publishers;
 	
 	public Integer getId() {
